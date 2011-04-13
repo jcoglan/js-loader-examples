@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>JavaScript loader examples</title>
+    <script type="text/javascript" src="./vendor/control.js"></script>
+    <script type="text/javascript" src="./vendor/LAB.js"></script>
+    <script type="text/javascript" src="./vendor/fLAB.js"></script>
+    <script type="text/javascript" src="./vendor/js-packages.js"></script>
+    <script type="text/javascript" src="./example.js"></script>
+  </head>
+  <body>
+  
+    <script type="text/javascript">
+      var A = new Date().getTime();
+      var whenDone = function() {
+        var B = new Date().getTime();
+        alert(JS.Test + ' :: ' + (B - A));
+      };
+      
+      Loader.packages(whenDone);
+    </script>
+    
+    <!-- ControlJS example
+    <script type="text/cjs" data-cjssrc="./lib/core.js"></script>
+    <script type="text/cjs" data-cjssrc="./lib/enumerable.js"></script>
+    <script type="text/cjs" data-cjssrc="./lib/dom.js"></script>
+    <script type="text/cjs" data-cjssrc="./lib/comparable.js"></script>
+    <script type="text/cjs" data-cjssrc="./lib/observable.js"></script>
+    <script type="text/cjs" data-cjssrc="./lib/console.js"></script>
+    <script type="text/cjs" data-cjssrc="./lib/set.js"></script>
+    <script type="text/cjs" data-cjssrc="./lib/hash.js"></script>
+    <script type="text/cjs" data-cjssrc="./lib/stack_trace.js"></script>
+    <script type="text/cjs" data-cjssrc="./lib/test.js"></script>
+    
+    <script type="text/javascript">
+      var A = new Date().getTime();
+    </script>
+    
+    <script type="text/cjs">whenDone()</script>
+    -->
+    
+  </body>
+</html>
+
