@@ -7,6 +7,7 @@
     <script type="text/javascript" src="./vendor/LAB.js"></script>
     <script type="text/javascript" src="./vendor/fLAB.js"></script>
     <script type="text/javascript" src="./vendor/js-packages.js"></script>
+    <script type="text/javascript" src="./vendor/$script.js"></script>
     <script type="text/javascript" src="./example.js"></script>
   </head>
   <body>
@@ -15,10 +16,11 @@
       var A = new Date().getTime();
       var whenDone = function() {
         var B = new Date().getTime();
-        alert(JS.Test + ' :: ' + (B - A));
+//        alert(JS.Test + ' :: ' + (B - A));
+        Loader.$script(function() {});
       };
       
-      Loader.packages(whenDone);
+      Loader.$script(whenDone);
     </script>
     
     <!-- ControlJS example

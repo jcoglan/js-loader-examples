@@ -81,6 +81,27 @@ Loader = {
   packages: function(callback) {
     setupPackages();
     JS.require('JS.Test', callback);
+  },
+  
+  $script: function(callback) {
+    $script('./lib/core.js', 'core');
+    $script.ready('core', function() {
+      $script('./lib/enumerable.js', 'enumerable');
+      $script('./lib/dom.js', 'dom');
+      $script('./lib/comparable.js', 'comparable');
+      $script('./lib/observable.js', 'observable');
+    });
+    $script.ready(['core', 'enumerable'], function() {
+      $script('./lib/console.js', 'console');
+      $script('./lib/hash.js', 'hash');
+      $script('./lib/stack_trace.js', 'stack_trace');
+    });
+    $script.ready(['core', 'enumerable', 'hash'], function() {
+      $script('./lib/set.js', 'set');
+    });
+    $script.ready(['core', 'console', 'dom', 'enumerable', 'set', 'comparable', 'stack_trace'], function() {
+      $script('./lib/test.js', callback);
+    });
   }
 };
 
