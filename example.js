@@ -78,6 +78,21 @@ Loader = {
         .wait(callback);
   },
   
+  head: function(callback) {
+    head.js(  './lib/core.js',
+              './lib/enumerable.js',
+              './lib/dom.js',
+              './lib/dom.js',
+              './lib/comparable.js',
+              './lib/observable.js',
+              './lib/console.js',
+              './lib/set.js',
+              './lib/hash.js',
+              './lib/stack_trace.js',
+              './lib/test.js',
+              callback );
+  },
+  
   packages: function(callback) {
     setupPackages();
     JS.require('JS.Test', callback);
@@ -101,6 +116,25 @@ Loader = {
     });
     $script.ready(['core', 'console', 'dom', 'enumerable', 'set', 'comparable', 'stack_trace'], function() {
       $script('./lib/test.js', callback);
+    });
+  },
+  
+  yepnope: function(callback) {
+    yepnope({
+      load: [ './lib/core.js',
+              './lib/enumerable.js',
+              './lib/dom.js',
+              './lib/dom.js',
+              './lib/comparable.js',
+              './lib/observable.js',
+              './lib/console.js',
+              './lib/set.js',
+              './lib/hash.js',
+              './lib/stack_trace.js',
+              './lib/test.js' ],
+      callback: function() {
+        if (window.JS && JS.Test) callback();
+      }
     });
   }
 };
