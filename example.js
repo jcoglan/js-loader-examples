@@ -62,8 +62,8 @@ Loader = {
               './lib/comparable.js',
               './lib/observable.js',
               './lib/console.js',
-              './lib/set.js',
               './lib/hash.js',
+              './lib/set.js',
               './lib/stack_trace.js',
               './lib/test.js',
               callback );
@@ -72,6 +72,18 @@ Loader = {
   packages: function(callback) {
     setupPackages();
     JS.require('JS.Test', callback);
+  },
+  
+  require: function(callback) {
+    require(['./lib/core.js'], function() {
+      require(['./lib/enumerable.js', './lib/dom.js', './lib/comparable.js', './lib/observable.js'], function() {
+        require(['./lib/console.js', './lib/hash.js'], function() {
+          require(['./lib/set.js', './lib/stack_trace.js'], function() {
+            require(['./lib/test.js'], callback);
+          });
+        });
+      });
+    });
   },
   
   $script: function(callback) {
