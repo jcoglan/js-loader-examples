@@ -40,20 +40,6 @@ var setupPackages = function() {
 };
 
 Loader = {
-  labjs: function(callback) {
-    $LAB.script('./lib/core.js').wait()
-        .script('./lib/enumerable.js')
-        .script('./lib/dom.js')
-        .script('./lib/comparable.js')
-        .script('./lib/observable.js').wait()
-        .script('./lib/console.js')
-        .script('./lib/hash.js').wait()
-        .script('./lib/set.js')
-        .script('./lib/stack_trace.js').wait()
-        .script('./lib/test.js')
-        .wait(callback);
-  },
-  
   head: function(callback) {
     head.js(  './lib/core.js',
               './lib/enumerable.js',
@@ -67,6 +53,20 @@ Loader = {
               './lib/stack_trace.js',
               './lib/test.js',
               callback );
+  },
+  
+  labjs: function(callback) {
+    $LAB.script('./lib/core.js').wait()
+        .script('./lib/enumerable.js')
+        .script('./lib/dom.js')
+        .script('./lib/comparable.js')
+        .script('./lib/observable.js').wait()
+        .script('./lib/console.js')
+        .script('./lib/hash.js').wait()
+        .script('./lib/set.js')
+        .script('./lib/stack_trace.js').wait()
+        .script('./lib/test.js')
+        .wait(callback);
   },
   
   packages: function(callback) {
@@ -124,6 +124,27 @@ Loader = {
         if (window.JS && JS.Test) callback();
       }
     });
+  },
+  
+  external: {
+    head: function(path, callback) {
+      head.js(path, callback);
+    },
+    labjs: function(path, callback) {
+      $LAB.script(path).wait(callback);
+    },
+    packages: function(path, callback) {
+      JS.Package.Loader.loadFile(path, callback);
+    },
+    require: function(path, callback) {
+      require([path], callback);
+    },
+    $script: function(path, callback) {
+      $script(path, callback);
+    },
+    yepnope: function(path, callback) {
+      yepnope({load: [path], callback: callback});
+    }
   }
 };
 

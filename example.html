@@ -22,7 +22,14 @@
         alert(JS.Test + ' :: ' + (B - A));
       };
       
-      Loader.packages(whenDone);
+      var engine = 'packages';
+      
+      var jQueryPath = 'http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js';
+      Loader.external[engine](jQueryPath, function() {
+        alert('jQuery! ' + (typeof jQuery));
+      });
+      
+      Loader[engine](whenDone);
     </script>
     
     <!-- ControlJS example
