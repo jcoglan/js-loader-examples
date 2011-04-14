@@ -97,6 +97,8 @@ Loader = {
     $script.ready(['core', 'enumerable'], function() {
       $script('./lib/console.js', 'console');
       $script('./lib/hash.js', 'hash');
+    });
+    $script.ready(['core', 'observable', 'enumerable', 'console'], function() {
       $script('./lib/stack_trace.js', 'stack_trace');
     });
     $script.ready(['core', 'enumerable', 'hash'], function() {
