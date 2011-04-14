@@ -47,8 +47,8 @@ Loader = {
         .script('./lib/comparable.js')
         .script('./lib/observable.js').wait()
         .script('./lib/console.js')
+        .script('./lib/hash.js').wait()
         .script('./lib/set.js')
-        .script('./lib/hash.js')
         .script('./lib/stack_trace.js').wait()
         .script('./lib/test.js')
         .wait(callback);
@@ -116,8 +116,8 @@ Loader = {
               './lib/comparable.js',
               './lib/observable.js',
               './lib/console.js',
-              './lib/set.js',
               './lib/hash.js',
+              './lib/set.js',
               './lib/stack_trace.js',
               './lib/test.js' ],
       callback: function() {
