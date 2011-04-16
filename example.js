@@ -44,7 +44,6 @@ Loader = {
     head.js(  './lib/core.js',
               './lib/enumerable.js',
               './lib/dom.js',
-              './lib/dom.js',
               './lib/comparable.js',
               './lib/observable.js',
               './lib/console.js',
@@ -113,7 +112,6 @@ Loader = {
     yepnope({
       load: [ './lib/core.js',
               './lib/enumerable.js',
-              './lib/dom.js',
               './lib/dom.js',
               './lib/comparable.js',
               './lib/observable.js',
