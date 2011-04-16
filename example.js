@@ -1,6 +1,6 @@
 var setupPackages = function() {
   JS.Packages(function() { with(this) {
-      var PATH = './lib/';
+      var PATH = 'http://localhost:8000/lib/';
       var module = function(name) { return file(PATH + name + '.js') };
       
       module('core')        .provides('JS.Module', 'JS.Class', 'JS.Singleton');
